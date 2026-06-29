@@ -190,14 +190,9 @@
   <div class="cover-sidebar"></div>
   <div class="cover-inner">
 
-    <div class="cover-photo-box" id="photo-box" onclick="document.getElementById('photo-input').click()" title="Click to add photo">
-      <div id="photo-placeholder" style="text-align:center;">
-        <div class="cover-photo-initials">A.N.</div>
-        <div class="cover-photo-label">Click to add photo</div>
-      </div>
-      <div class="photo-overlay no-print"><span>Click to<br>change photo</span></div>
+    <div class="cover-photo-box" id="photo-box">
+      <img src="photo.jpg" alt="Alibek Nurmagambetov" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;border-radius:2pt;">
     </div>
-    <input type="file" id="photo-input" accept="image/*" onchange="loadPhoto(event)">
 
     <div class="cover-eyebrow">Project Atlas · Version 2.0</div>
     <div class="cover-title">EXECUTIVE<br>CAREER<br>PORTFOLIO</div>
@@ -1222,26 +1217,5 @@
   <div style="text-align:center;font-size:7pt;color:var(--border);margin-top:8pt;font-style:italic;">Confidential — For recruitment purposes only. Single source of truth for all CVs, cover letters, and interview preparation.</div>
 </div>
 
-<script>
-function loadPhoto(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    const box = document.getElementById('photo-box');
-    const placeholder = document.getElementById('photo-placeholder');
-    // Remove placeholder text
-    if (placeholder) placeholder.remove();
-    // Remove existing photo if any
-    const existing = box.querySelector('img');
-    if (existing) existing.remove();
-    // Insert photo
-    const img = document.createElement('img');
-    img.src = e.target.result;
-    box.insertBefore(img, box.firstChild);
-  };
-  reader.readAsDataURL(file);
-}
-</script>
 </body>
 </html>
